@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+  Copyright (c) 2019, 2021 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.polarsys.capella.diffmerge.defer.ui"
+            name="%category.name">
+      </category>
+      <command
+            categoryId="org.polarsys.capella.diffmerge.defer.ui"
+            id="org.polarsys.capella.diffmerge.defer.ui.deferchanges"
+            name="%command.name">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.diffmerge.defer.ui.OpenSessionCommandHandler"
+            id="org.polarsys.capella.diffmerge.defer.ui.opensession"
+            name="%open.session.cmd.name">
+      </command>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.polarsys.capella.diffmerge.defer.ui.DeferComparisonHandler"
+            commandId="org.polarsys.capella.diffmerge.defer.ui.deferchanges">
+            <activeWhen>
+				<and>
+					<with variable="activeEditorInput">
+	                    <instanceof
+	                          value="org.eclipse.emf.diffmerge.ui.setup.EMFDiffMergeEditorInput">
+	                    </instanceof>
+	                 </with>
+	               <with variable="activePartId">
+		               <not>
+					   		<equals value="org.polarsys.capella.diffmerge.defer.ui.view"/>
+		               </not>
+				   </with>
+				</and>            	
+            </activeWhen>
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.emf.diffmerge.ui.toolbars.synthesis?before=navigationGroup">
+         <separator
+               name="deferredMergeGroup"
+               visible="true">
+         </separator>
+         <command
+               commandId="org.polarsys.capella.diffmerge.defer.ui.deferchanges"
+               disabledIcon="icons/full/blank.png"
+               icon="icons/full/export_wiz.png"
+               label="%command.label"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.polarsys.capella.diffmerge.defer.ui.view?after=additions">
+         <command
+               commandId="org.polarsys.capella.diffmerge.defer.ui.opensession"
+               label="%open.session.cmd.name"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <test
+                     property="org.polarsys.capella.diffmerge.defer.ui.isSessionClosed">
+               </test>
+            </visibleWhen>
+         </command>
+         <separator
+               name="group.showIn"
+               visible="true">
+         </separator>
+         <separator
+               name="group.sendTo"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.polarsys.capella.diffmerge.defer.ui.editors.PendingChangesEditor"
+            default="false"
+            extensions="pending"
+            icon="icons/full/changeset_obj.png"
+            id="org.polarsys.capella.diffmerge.defer.ui.editor"
+            name="%editor.name">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.polarsys.capella.diffmerge.defer.ui.viewcategory"
+            class="org.polarsys.capella.diffmerge.defer.ui.views.PendingChangesView"
+            icon="icons/full/changeset_obj.png"
+            id="org.polarsys.capella.diffmerge.defer.ui.view"
+            name="%view.name"
+            restorable="true">
+      </view>
+      <category
+            id="org.polarsys.capella.diffmerge.defer.ui.viewcategory"
+            name="%category.view.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.polarsys.capella.diffmerge.defer.ui.SessionPropertyTester"
+            id="org.polarsys.capella.diffmerge.defer.ui.session"
+            namespace="org.polarsys.capella.diffmerge.defer.ui"
+            properties="isSessionClosed"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.sessionManagerListener">
+      <listener
+            class="org.polarsys.capella.diffmerge.defer.ui.DeferSessionManagerListener">
+      </listener>
+   </extension>
+   
+</plugin>

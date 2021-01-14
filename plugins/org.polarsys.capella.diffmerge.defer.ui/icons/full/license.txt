@@ -1,0 +1,11 @@
+These followings icons are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/change_obj.png - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/change_obj.png
+/icons/changeset_obj.png- org.eclipse.team.ui - org.eclipse.team.ui/icons/full/obj/changeset_obj.png
+/icons/blank.png - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/blank.png
+/icons/export_wiz.png - org.eclipse.ui.ide - org.eclipse.ui.ide/icons/full/etool16/export_wiz.png
+/icons/remove.png - org.eclipse.ui - org.eclipse.ui/icons/full/elcl16/remove.png
