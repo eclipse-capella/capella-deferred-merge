@@ -1,0 +1,42 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _f0ltUIayEemuqaKKlJk3rQ,_p5-B4IayEemuqaKKlJk3rQ
+Element-Name: PromptToSaveOnClosePendingFile
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _khnkQKIpEemDPYw22eOybA
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/9/19 11:25 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Open model2 and then compare model1 and model2 as models
+with [get-view "Project Explorer" | get-tree] {
+    select "model2/model1.aird" | double-click
+    select "model2/model1.aird" "model1/model1.aird"
+    get-menu -path "Compare With/Each Other as models" | click
+}
+get-window "EMF Diff/Merge" | get-button Finish | click
+
+// Export pending changes
+get-editor "Compare ('model1' - 'model1')" | get-button "Export as pending changes" | click
+get-window "Defer Merge" | get-button OK | click
+
+// Open pending file
+get-view "Project Explorer" | get-tree | select "model2/model1.pending" | double-click
+
+// Apply on change in the Pending view to make it dirty and close the pending file
+with [get-view "Pending Changes"] {
+    get-tree | select "model1 (3)/model1 (3)/EPBS Architecture (1)/Capabilities (1)/CapabilityRealization 1" | get-menu 
+        -path "Apply change(s)" | click
+    get-button "Close the current pending changes" | click
+}
+
+// Check that we are prompted to save the pending file
+get-window Save | get-label "Pending file has been modified. Save changes?" | get-property caption 
+    | equals "Pending file has been modified. Save changes?" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

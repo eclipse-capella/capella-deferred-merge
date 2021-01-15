@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="diffdeferdata" nsURI="http://www.eclipse.org/emf/diffmerge/defer/1.0.0/diffdeferdata"
+    nsPrefix="org.polarsys.capella.diffmerge.defer">
+  <eClassifiers xsi:type="ecore:EClass" name="DeferredComparison" eSuperTypes="../../org.eclipse.emf.diffmerge.generic/model/GDiffData.ecore#//GIdentified">
+    <eOperations name="dispose"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparisonMethodFactoryID"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetScopeDefinitionURI"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualComparison" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.diffmerge/model/DiffData.ecore#//EComparison"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transientData" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        transient="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logicalSourceRoots" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="technicalSourceRoots" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

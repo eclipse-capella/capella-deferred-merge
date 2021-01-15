@@ -1,0 +1,67 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: CapellaExplorerFilters
+Element-Type: context
+Element-Version: 2.0
+Id: _bhVdgIa0EemuqaKKlJk3rQ
+Runtime-Version: 2.5.0.201909302000
+Save-Time: 11/28/19 1:49 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+get-button "View Menu" | click
+get-view "Project Explorer" | get-menu "Filters and Customization..." | click
+with [get-window "Filters and Customization"] {
+    get-tab-folder | get-tab-item "Pre-set filters" | click
+    with [get-table] {
+    
+    get-item "\*.afm resources" | uncheck
+    get-item "\*.aird" | uncheck
+    get-item "\*.class resources" | uncheck
+    get-item "\*.capella resources" | uncheck
+    get-item "Capability and Mission Involvements" | check
+    get-item "Association Links" | check
+    get-item "Closed projects" | uncheck
+    get-item "Combined Fragments" | check
+    get-item "Component Exchange Ends" | check
+    get-item "Component Exchanges" | check
+    get-item "Component Port" | check
+    get-item "EMF Resources" | check
+    get-item "Events" | check
+    get-item "Execution Ends" | check
+    get-item "Executions" | check
+    get-item "Fragment Ends" | check
+    get-item "Function Port" | check
+    get-item "Functional Chain Involvements" | check
+    get-item "Functional Exchanges" | check
+    get-item "Interaction Operands" | check
+    get-item "Interaction States" | check
+    get-item "Interaction Uses" | check
+    get-item "Interface Use and Implementation Links" | check
+    get-item "Involvement Capability to Function Links" | check
+    get-item "Merge Links" | uncheck
+    get-item "Merged Scenario" | check
+    get-item "Message Ends" | check
+    get-item "Naming Rules" | uncheck
+    get-item "Parts" | check
+    get-item "Physical Links" | check
+    get-item "Physical Path Involvements" | check
+    get-item "Physical Port" | check
+    get-item "Property Value Packages" | check
+    get-item "Refinement Links" | check
+    get-item "Replicable Element Compliancy Definitions" | uncheck
+    get-item "Replicable Elements Links" | uncheck
+    get-item "Representations per category" | uncheck
+    get-item "Representations per resource" | check
+    get-item "Reuse Links" | uncheck
+    get-item "Sequence Messages" | uncheck
+    get-item "Technical Interfaces" | check
+    get-item "Trace" | check
+    get-item "Transformation Links" | check
+    }
+    get-button OK | click
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

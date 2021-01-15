@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2019, 2021 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.polarsys</groupId>
+		<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
+		<version>0.10.0-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<artifactId>org.polarsys.capella.diffmerge.defer.tests.rcptt</artifactId>
+	<packaging>rcpttTest</packaging>
+	<version>0.10.0-SNAPSHOT</version>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>rcptt-releases</id>
+			<name>RCPTT Maven repository</name>
+			<url>https://repo.eclipse.org/content/repositories/rcptt-releases/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>rcptt-snapshots</id>
+			<name>RCPTT Maven Snapshots repository</name>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<url>https://repo.eclipse.org/content/repositories/rcptt-snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.rcptt</groupId>
+				<artifactId>rcptt-maven-plugin</artifactId>
+				<version>${rcptt-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<runner>
+						<version>${rcptt-runner-version}</version>
+						<vmArgs>
+							<vmArg>-Xms256m</vmArg>
+							<vmArg>-Xmx3g</vmArg>
+						</vmArgs>
+					</runner>
+					<testOptions>
+						<execTimeout>3600</execTimeout>
+						<testExecTimeout>300</testExecTimeout>
+					</testOptions>
+					<suites>
+						<suite>AllTestCases</suite>
+					</suites>
+					<aut>
+						<explicit>${maven.multiModuleProjectDirectory}/capella</explicit>
+						<vmArgs>
+							<vmArg>${argLine}</vmArg>
+						</vmArgs>
+					</aut>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.diffmerge.defer.tests.ju;singleton:=true
+Bundle-Version: 0.10.0.qualifier
+Bundle-Activator: org.polarsys.capella.diffmerge.defer.tests.ju.DiffMergeDeferTestPlugin
+Require-Bundle: org.polarsys.capella.core.preferences,
+ org.polarsys.capella.test.framework
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+
+

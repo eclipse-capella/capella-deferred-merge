@@ -1,0 +1,53 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _WsVGwKOaEemDPYw22eOybA,_xD23UKOeEemDPYw22eOybA
+Element-Name: ApplyDeletionOnCapellaElementTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _yzIO0KOZEemDPYw22eOybA
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/11/19 7:55 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Open session for toto2 and compare toto and toto2 as models
+with [get-view "Project Explorer" | get-tree] {
+    select "toto2/toto.aird" | double-click
+    select "toto2/toto.aird" "toto/toto.aird"
+    get-menu -path "Compare With/Each Other as models" | click
+}
+get-window "EMF Diff/Merge" | get-button Finish | click
+
+// Export as pending changes
+get-editor "Compare ('toto' - 'toto')" | get-button "Export as pending changes" | click
+get-window "Defer Merge" | get-button OK | click
+
+// Open pending file
+get-view "Project Explorer" | get-tree | select "toto2/toto.pending" | double-click
+
+// Apply deletion
+get-view "Pending Changes" | get-tree 
+    | select "toto (2)/toto (2)/System Analysis (2)/System Functions (2)/Root System Function (2)/SystemFunction 6" 
+    | get-menu -path "Apply deletion(s)" | click
+    
+// Save changes
+get-button "Save All (M1+M2+S)" | click
+
+// Close the pending changes view
+get-view "Pending Changes" | close
+
+// Close the compare editor
+get-editor "Compare ('toto' - 'toto')" | close
+
+// Reopen the pending file => It should open without any issue
+get-view "Project Explorer" | get-tree | select "toto2/toto.pending" | double-click
+
+// Assertion
+get-view "Pending Changes" | get-tree | get-item 
+    -path "toto \\(1\\)/toto \\(1\\)/System Analysis \\(1\\)/System Functions \\(1\\)/Root System Function \\(1\\)/SystemFunction 5" 
+    | get-property caption | equals "SystemFunction 5" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

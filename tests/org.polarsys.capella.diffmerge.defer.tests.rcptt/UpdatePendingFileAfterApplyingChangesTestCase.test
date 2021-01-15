@@ -1,0 +1,50 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _f0ltUIayEemuqaKKlJk3rQ,_p5-B4IayEemuqaKKlJk3rQ
+Element-Name: UpdatePendingFileAfterApplyingChangesTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _-YqgoJJYEem96YbM6pzS6Q
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/19/19 8:21 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Open session for model2 and compare with each other as models
+with [get-view "Project Explorer" | get-tree] {
+    select "model2/model1.aird" | double-click
+    select "model2/model1.aird" "model1/model1.aird"
+    get-menu -path "Compare With/Each Other as models" | click
+}
+
+// Export pending changes
+get-window "EMF Diff/Merge" | get-button Finish | click
+get-editor "Compare ('model1' - 'model1')" | get-button "Export as pending changes" | click
+get-window "Defer Merge" | get-button OK | click
+
+// Open the pending file
+get-view "Project Explorer" | get-tree | select "model2/model1.pending" | double-click
+
+// Apply only on change
+get-view "Pending Changes" | get-tree 
+    | select "model1 (3)/model1 (3)/System Analysis (2)/System Functions (2)/Root System Function (2)/SystemFunction 1" 
+    | get-menu -path "Apply change(s)" | click
+
+// Save the model
+get-button "Save (M1+S)" | click
+
+// Close the pending file
+get-view "Pending Changes" | get-button "Close the current pending changes" | click
+
+// Reopen the pending file
+get-view "Project Explorer" | get-tree | select "model2/model1.pending" | double-click
+
+// Check that the applied change does not appear in the pending file
+get-view "Pending Changes" | get-tree | get-item 
+    -path "model1 \\(2\\)/model1 \\(2\\)/System Analysis \\(1\\)/System Functions \\(1\\)/Root System Function \\(1\\)" 
+    | get-property childCount | equals 1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

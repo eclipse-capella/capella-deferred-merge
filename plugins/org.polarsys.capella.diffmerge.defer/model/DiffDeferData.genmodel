@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.polarsys.capella.diffmerge.defer/src" modelPluginID="org.polarsys.capella.diffmerge.defer"
+    modelName="DiffDeferData" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    suppressUnsettable="true" complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6"
+    usedGenPackages="../../org.eclipse.emf.diffmerge/model/DiffData.genmodel#//diffdata platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.emf.diffmerge.generic/model/GDiffData.genmodel#//gdiffdata"
+    importOrganizing="true">
+  <foreignModel>DiffDeferData.ecore</foreignModel>
+  <genPackages prefix="Diffdeferdata" basePackage="org.polarsys.capella.diffmerge.defer"
+      resource="XMI" disposableProviderFactory="true" fileExtensions="pending" ecorePackage="DiffDeferData.ecore#/">
+    <genClasses ecoreClass="DiffDeferData.ecore#//DeferredComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiffDeferData.ecore#//DeferredComparison/comparisonMethodFactoryID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiffDeferData.ecore#//DeferredComparison/targetScopeDefinitionURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiffDeferData.ecore#//DeferredComparison/actualComparison"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiffDeferData.ecore#//DeferredComparison/transientData"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiffDeferData.ecore#//DeferredComparison/logicalSourceRoots"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiffDeferData.ecore#//DeferredComparison/technicalSourceRoots"/>
+      <genOperations ecoreOperation="DiffDeferData.ecore#//DeferredComparison/dispose"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

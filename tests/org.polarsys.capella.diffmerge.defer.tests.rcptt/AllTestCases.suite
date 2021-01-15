@@ -1,0 +1,26 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: AllTestCases
+Element-Type: testsuite
+Element-Version: 2.0
+Id: _BhKRcIa6EemuqaKKlJk3rQ
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/16/19 9:11 AM
+
+------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
+Content-Type: text/testcase
+Entry-Name: testcase-items
+
+_4APHEIa0EemuqaKKlJk3rQ	// kind: 'test' name: 'ExportChangesSessionClosedTestCase' path: 'ExportChangesSessionClosedTestCase.test'
+_nZmsAIa0EemuqaKKlJk3rQ	// kind: 'test' name: 'ExportChangesSessionOpenTestCase' path: 'ExportChangesSessionOpenTestCase.test'
+_YZcfsIbZEemuqaKKlJk3rQ	// kind: 'test' name: 'UndoRedoTestCase' path: 'UndoRedoTestCase.test'
+_-YqgoJJYEem96YbM6pzS6Q	// kind: 'test' name: 'UpdatePendingFileAfterApplyingChangesTestCase' path: 'UpdatePendingFileAfterApplyingChangesTestCase.test'
+_khnkQKIpEemDPYw22eOybA	// kind: 'test' name: 'PromptToSaveOnClosePendingFile' path: 'PromptToSaveOnClosePendingFile.test'
+_ptd-EKIpEemDPYw22eOybA	// kind: 'test' name: 'PromptToSaveOnClosePendingView' path: 'PromptToSaveOnClosePendingView.test'
+_yzIO0KOZEemDPYw22eOybA	// kind: 'test' name: 'ApplyDeletionOnCapellaElementTestCase' path: 'ApplyDeletionOnCapellaElementTestCase.test'
+_-h2DIKeTEemDPYw22eOybA	// kind: 'test' name: 'OpenSessionPopupDialogTestCase' path: 'OpenSessionPopupDialogTestCase.test'
+_WeohgKeWEemDPYw22eOybA	// kind: 'test' name: 'DeleteModelAndOpenPendingFileTestCase' path: 'DeleteModelAndOpenPendingFileTestCase.test'
+_9ExEUKeXEemDPYw22eOybA	// kind: 'test' name: 'ExtractManyPendingTestCase' path: 'ExtractManyPendingTestCase.test'
+_8kRJ4KeYEemDPYw22eOybA	// kind: 'test' name: 'OpenSessionActionTestCase' path: 'OpenSessionActionTestCase.test'
+
+------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
