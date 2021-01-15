@@ -54,7 +54,7 @@ pipeline {
                     
                     deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/*-dropins-*.zip", deploymentDirName)
                     deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/*-updateSite-*.zip", deploymentDirName)                    
-
+					currentBuild.description = "${deploymentDirName} - <a href=\"https://download.eclipse.org/capella/addons/deferredmerge/dropins/nightly/${deploymentDirName}\">drop-in</a> - <a href=\"https://download.eclipse.org/capella/addons/deferredmerge/updates/nightly/${deploymentDirName}\">update-site</a>"
                    }
              }
         }
