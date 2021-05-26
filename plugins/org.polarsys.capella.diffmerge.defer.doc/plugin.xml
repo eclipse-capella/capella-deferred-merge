@@ -17,7 +17,7 @@
    <extension
          point="org.eclipse.help.toc">
       <toc
-            file="html/Deferred Merge/Deferred-Merge-toc.xml"
+            file="Deferred-Merge-toc.xml"
             primary="true">
       </toc>
    </extension>

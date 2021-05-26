@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
-encoding//html/Deferred\ Merge/Deferred-Merge.html=UTF-8
+encoding//html/Installation\ and\ Uninstallation.html=UTF-8
+encoding//html/Release\ Notes/KnownIssues.html=UTF-8
+encoding//html/Release\ Notes/Whatsnew.html=UTF-8
+encoding//html/User\ Manual/Deferred-Merge.html=UTF-8
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.7
 org.eclipse.jdt.core.compiler.compliance=1.7
