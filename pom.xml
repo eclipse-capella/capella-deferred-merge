@@ -28,8 +28,8 @@
 	<name>Deferred Merge</name>
 
 	<properties>
-		<tycho-version>2.0.0</tycho-version>
-		<tycho-extras-version>2.0.0</tycho-extras-version>
+		<tycho-version>2.2.0</tycho-version>
+		<tycho-extras-version>2.2.0</tycho-extras-version>
 		<antrun-version>3.0.0</antrun-version>
 
 		<!-- for junit -->
@@ -42,8 +42,8 @@
 		<addonUnqualifiedVersion>0.10.0</addonUnqualifiedVersion>
 
 		<!--  for rcptt -->
-		<rcptt-version>2.5.1</rcptt-version>
-		<rcptt-runner-version>2.5.1</rcptt-runner-version>
+		<rcptt-version>2.5.3</rcptt-version>
+		<rcptt-runner-version>2.5.3</rcptt-runner-version>
 	</properties>
 
 	<modules>
