@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2019, 2022 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -36,7 +36,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.diffdata.EMatch;
 import org.eclipse.emf.diffmerge.ui.EMFDiffMergeUIPlugin;
-import org.eclipse.emf.diffmerge.ui.sirius.SiriusDifferenceCategoryProvider;
 import org.eclipse.emf.diffmerge.ui.util.GitLikeDiffLabelDecorator;
 import org.eclipse.emf.diffmerge.ui.util.UIUtil.MenuDropDownAction;
 import org.eclipse.emf.diffmerge.ui.viewers.AbstractComparisonViewer;
@@ -82,7 +81,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.polarsys.capella.core.compare.CapellaDiffMergeLabelProvider;
-
+import org.polarsys.capella.core.compare.CapellaDifferenceCategoryProvider;
 import org.polarsys.capella.diffmerge.defer.ui.DeferredComparisonLoader;
 import org.polarsys.capella.diffmerge.defer.ui.EMFDiffMergeDeferUIPlugin;
 import org.polarsys.capella.diffmerge.defer.ui.EMFDiffMergeDeferUIPlugin.ImageID;
@@ -418,7 +417,7 @@ public class PendingChangesView extends ViewPart implements ISaveablePart {
     result
         .setDelegateLabelProvider(CapellaDiffMergeLabelProvider.getInstance());
     result.setDiffLabelDecorator(GitLikeDiffLabelDecorator.getInstance());
-    result.setCategoryProvider(new SiriusDifferenceCategoryProvider());
+    result.setCategoryProvider(new CapellaDifferenceCategoryProvider());
     return result;
   }
 
