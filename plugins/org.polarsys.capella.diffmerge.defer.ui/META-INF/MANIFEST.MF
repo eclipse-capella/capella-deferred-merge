@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.core.compare,
  org.polarsys.capella.core.sirius.ui,
  org.eclipse.amalgam.explorer.activity.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.polarsys.capella.diffmerge.defer.ui,
