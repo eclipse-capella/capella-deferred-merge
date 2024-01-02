@@ -62,7 +62,7 @@
 						<id>generate.target</id>
 						<phase>validate</phase>
 						<configuration>
-							<executionEnvironment>JavaSE-1.8</executionEnvironment>
+							<executionEnvironment>JavaSE-17</executionEnvironment>
 							<applicationsArgs>
 								<args>-application ${converterApplication.name} ${targetPlatform.name}</args>
 							</applicationsArgs>

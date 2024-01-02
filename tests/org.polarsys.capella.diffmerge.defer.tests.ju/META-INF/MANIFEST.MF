@@ -7,7 +7,7 @@ Bundle-Activator: org.polarsys.capella.diffmerge.defer.tests.ju.DiffMergeDeferTe
 Require-Bundle: org.polarsys.capella.core.preferences,
  org.polarsys.capella.test.framework
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 

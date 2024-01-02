@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Activator: org.polarsys.capella.diffmerge.defer.EMFDiffMergeDeferPlugin
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.diffmerge.defer,
  org.polarsys.capella.diffmerge.defer.diffdeferdata,
  org.polarsys.capella.diffmerge.defer.diffdeferdata.impl,
