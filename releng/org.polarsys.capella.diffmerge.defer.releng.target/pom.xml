@@ -20,10 +20,10 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.26.0</tycho-version>
-		<tycho-extras-version>0.26.0</tycho-extras-version>
+		<tycho-version>2.7.5</tycho-version>
+		<tycho-extras-version>2.7.5</tycho-extras-version>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
-		<converterApplication.name>fr.obeo.releng.targetplatform.targetPlatform.converter</converterApplication.name>
+		<converterApplication.name>org.eclipse.cbi.targetplatform.tpd.converter</converterApplication.name>
 	</properties>
 
 	<build>
@@ -37,18 +37,18 @@
 						<repository>
 							<id>targetplatform-tp</id>
 							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/oxygen/201709271000</url>
+							<url>http://download.eclipse.org/releases/2023-03</url>
 						</repository>
 						<repository>
 							<id>targetplatform</id>
 							<layout>p2</layout>
-							<url>http://pdulth.github.io/fr.obeo.releng.targetplatform/p2/latest</url>
+							<url>https://download.eclipse.org/cbi/updates/tpd/nightly/latest</url>
 						</repository>
 					</repositories>
 					<!-- Set dependencies to launch the application -->
 					<dependencies>
 						<dependency>
-							<artifactId>fr.obeo.releng.targetplatform-feature</artifactId>
+							<artifactId>org.eclipse.cbi.targetplatform.feature</artifactId>
 							<type>eclipse-feature</type>
 						</dependency>
 						<dependency>

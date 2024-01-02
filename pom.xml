@@ -28,22 +28,22 @@
 	<name>Deferred Merge</name>
 
 	<properties>
-		<tycho-version>2.0.0</tycho-version>
-		<tycho-extras-version>2.0.0</tycho-extras-version>
+		<tycho-version>2.7.5</tycho-version>
+		<tycho-extras-version>2.7.5</tycho-extras-version>
 		<antrun-version>3.0.0</antrun-version>
 
 		<!-- for junit -->
 		<capella-product-id>org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
-		<tycho.testArgLine>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</tycho.testArgLine>
+		<tycho.testArgLine>-Xms3g -Xmx3g -XX:MaxPermSize=256m</tycho.testArgLine>
 
 		<!-- for packaging -->
-		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
+		<eclipse-repo.url>http://download.eclipse.org/releases/2023-03</eclipse-repo.url>
 		<packagedAddonName>DeferredMerge</packagedAddonName>
 		<addonUnqualifiedVersion>0.10.0</addonUnqualifiedVersion>
 
 		<!--  for rcptt -->
-		<rcptt-version>2.5.1</rcptt-version>
-		<rcptt-runner-version>2.5.1</rcptt-runner-version>
+		<rcptt-version>2.5.5-SNAPSHOT</rcptt-version>
+		<rcptt-runner-version>2.5.5-SNAPSHOT</rcptt-runner-version>
 	</properties>
 
 	<modules>
@@ -126,7 +126,7 @@
 								<type>eclipse-feature</type>
 							</dependency>
 							<dependency>
-								<artifactId>org.eclipse.equinox.ds</artifactId>
+								<artifactId>org.apache.felix.scr</artifactId>
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
