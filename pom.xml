@@ -22,7 +22,7 @@
 	<groupId>org.polarsys</groupId>
 	<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
 	<!-- If you update this version please change addonUnqualifiedVersion to be the same -->
-	<version>0.10.0-SNAPSHOT</version>
+	<version>0.11.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Deferred Merge</name>
@@ -39,7 +39,7 @@
 		<!-- for packaging -->
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 		<packagedAddonName>DeferredMerge</packagedAddonName>
-		<addonUnqualifiedVersion>0.10.0</addonUnqualifiedVersion>
+		<addonUnqualifiedVersion>0.11.0</addonUnqualifiedVersion>
 
 		<!--  for rcptt -->
 		<rcptt-version>2.5.1</rcptt-version>
@@ -80,7 +80,7 @@
 						<artifact>
 							<groupId>org.polarsys</groupId>
 							<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
-							<version>0.10.0-SNAPSHOT</version>
+							<version>0.11.0-SNAPSHOT</version>
 							<classifier>releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition</classifier>
 						</artifact>
 					</target>
