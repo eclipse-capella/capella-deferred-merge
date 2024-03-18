@@ -14,4 +14,4 @@
 
 Retrieve all known issues by following this link:
 
-* [https://github.com/eclipse/capella-deferred-merge/issues Deffered Merge issues]
+* [https://github.com/eclipse-capella/capella-deferred-merge/issues Deffered Merge issues]
