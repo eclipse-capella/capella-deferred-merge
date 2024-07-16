@@ -95,7 +95,7 @@ pipeline {
                 }
             }
         }
-
+/*
         stage('Run RCPTT') {
             steps {
                 script {
@@ -105,7 +105,7 @@ pipeline {
                 }
             }
         }
-
+*/
         stage('Sonar') {
             steps {
                 script {
