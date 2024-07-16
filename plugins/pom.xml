@@ -23,6 +23,10 @@
 	<groupId>org.polarsys</groupId>
 	<artifactId>org.polarsys.capella.diffmerge.defer.plugins</artifactId>
 	<packaging>pom</packaging>
+	
+	<properties>
+		<sonar.sources>src</sonar.sources>
+	</properties>
 	<modules>
 		<module>org.polarsys.capella.diffmerge.defer</module>
 		<module>org.polarsys.capella.diffmerge.defer.ui</module>
