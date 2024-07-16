@@ -23,6 +23,9 @@
 	<groupId>org.polarsys</groupId>
 	<artifactId>org.polarsys.capella.diffmerge.defer.features</artifactId>
 	<packaging>pom</packaging>
+	<properties>
+		<sonar.skip>true</sonar.skip>
+	</properties>
 	<modules>
 		<module>org.polarsys.capella.diffmerge.defer.feature</module>
 		<module>org.polarsys.capella.diffmerge.defer.tests.feature</module>
