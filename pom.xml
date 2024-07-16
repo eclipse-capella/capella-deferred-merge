@@ -41,6 +41,7 @@
 		<packagedAddonName>DeferredMerge</packagedAddonName>
 		<addonUnqualifiedVersion>0.11.0</addonUnqualifiedVersion>
 
+		<sonar.sources>src</sonar.sources>
 		<!--  for rcptt -->
 		<rcptt-version>2.5.5-SNAPSHOT</rcptt-version>
 		<rcptt-runner-version>2.5.5-SNAPSHOT</rcptt-runner-version>
