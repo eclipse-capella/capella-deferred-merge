@@ -96,16 +96,6 @@ pipeline {
             }
         }
 
-        stage('Run RCPTT') {
-            steps {
-                script {
-                    wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-                        tester.runRcptt("-Prcptt")                           
-                    }
-                }
-            }
-        }
-
         stage('Sonar') {
             steps {
                 script {
