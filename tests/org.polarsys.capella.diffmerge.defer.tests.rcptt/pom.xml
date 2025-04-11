@@ -66,6 +66,11 @@
 						<suite>AllTestCases</suite>
 					</suites>
 					<aut>
+						<vmArgs>
+							<vmArg>-Xms3g</vmArg>
+							<vmArg>-Xmx3g</vmArg>
+							<vmArg>-Dlogback.configurationFile=${maven.multiModuleProjectDirectory}/capella/configuration/logback.xml</vmArg>
+						</vmArgs>
 						<explicit>${maven.multiModuleProjectDirectory}/capella</explicit>
 						<vmArgs>
 							<vmArg>${argLine}</vmArg>

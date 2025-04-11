@@ -54,6 +54,7 @@ pipeline {
                     
                     deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/*-dropins-*.zip", deploymentDirName)
                     deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/*-updateSite-*.zip", deploymentDirName)                    
+					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/bom.json", deploymentDirName)                    
 					currentBuild.description = "${deploymentDirName} - <a href=\"https://download.eclipse.org/capella/addons/deferredmerge/dropins/nightly/${deploymentDirName}\">drop-in</a> - <a href=\"https://download.eclipse.org/capella/addons/deferredmerge/updates/nightly/${deploymentDirName}\">update-site</a>"
                    }
              }
@@ -77,10 +78,10 @@ pipeline {
                     sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
                     sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
                     
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("master"), 'org.polarsys.capella.test.feature.feature.group')
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("master"), 'org.polarsys.capella.test.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
                     
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.feature.feature.group')
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.tests.feature.feature.group')
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.tests.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
                    }
              }
         }
