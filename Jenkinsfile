@@ -77,10 +77,10 @@ pipeline {
                     sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
                     sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
                     
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("master"), 'org.polarsys.capella.test.feature.feature.group')
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("master"), 'org.polarsys.capella.test.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
                     
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.feature.feature.group')
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.tests.feature.feature.group')
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.tests.feature.feature.group', "-Dlogback.configurationFile=${CAPELLA_PRODUCT_PATH}/configuration/logback.xml")
                    }
              }
         }
