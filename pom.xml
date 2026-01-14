@@ -42,8 +42,8 @@
 		<addonUnqualifiedVersion>0.11.0</addonUnqualifiedVersion>
 
 		<!--  for rcptt -->
-		<rcptt-version>2.5.5-SNAPSHOT</rcptt-version>
-		<rcptt-runner-version>2.5.5-SNAPSHOT</rcptt-runner-version>
+		<rcptt-version>2.5.5</rcptt-version>
+		<rcptt-runner-version>2.5.5</rcptt-runner-version>
 	</properties>
 
 	<modules>
