@@ -110,7 +110,7 @@ pipeline {
             steps {
                 script {
                     tester.publishTests()
-                    sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse/capella-deferred-merge", 'sonarcloud-token-deferred-merge')
+                    sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse/capella-deferred-merge", 'sonarcloud-token-capella-deferred-merge')
                 }
             }
         }
