@@ -62,7 +62,7 @@ pipeline {
         stage('Download Capella') {
             steps {
                 script {
-                    def capellaURL = capella.getDownloadURL("master", 'linux', '')
+                    def capellaURL = capella.getDownloadURL("${CAPELLA_BRANCH}", 'linux', '')
                     
                     sh "curl -k -o capella.tar.gz ${capellaURL}"
                     sh "tar xzf capella.tar.gz"
@@ -77,7 +77,7 @@ pipeline {
                     sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
                     sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
                     
-                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("master"), 'org.polarsys.capella.test.feature.feature.group')
+                    eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${CAPELLA_BRANCH}"), 'org.polarsys.capella.test.feature.feature.group')
                     
                     eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.feature.feature.group')
                     eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.diffmerge.defer.releng.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.diffmerge.defer.tests.feature.feature.group')
@@ -110,7 +110,7 @@ pipeline {
             steps {
                 script {
                     tester.publishTests()
-                    sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse/capella-deferred-merge", 'sonarcloud-token-capella-deferred-merge')
+                    sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse-capella/capella-deferred-merge", 'sonarcloud-token-capella-deferred-merge')
                 }
             }
         }
