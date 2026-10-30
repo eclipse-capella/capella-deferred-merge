@@ -20,7 +20,7 @@
 	<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
 	<!-- If you update this version please change addonUnqualifiedVersion to be
 	the same -->
-	<version>0.11.0-SNAPSHOT</version>
+	<version>0.12.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Deferred Merge</name>
@@ -100,7 +100,7 @@
 							<groupId>org.polarsys</groupId>
 							<artifactId>
 								org.polarsys.capella.diffmerge.defer.parent</artifactId>
-							<version>0.11.0-SNAPSHOT</version>
+							<version>0.12.0-SNAPSHOT</version>
 							<classifier>
 								releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition</classifier>
 						</artifact>
