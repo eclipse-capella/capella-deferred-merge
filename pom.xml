@@ -36,7 +36,7 @@
 		<tycho.testArgLine>-Xms3g -Xmx3g -XX:MaxPermSize=256m</tycho.testArgLine>
 
 		<!-- for packaging -->
-		<eclipse-repo.url>http://download.eclipse.org/releases/2023-03</eclipse-repo.url>
+		<eclipse-repo.url>http://download.eclipse.org/releases/2025-09</eclipse-repo.url>
 		<packagedAddonName>DeferredMerge</packagedAddonName>
 		<addonUnqualifiedVersion>0.11.0</addonUnqualifiedVersion>
 
@@ -105,7 +105,6 @@
 								releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition</classifier>
 						</artifact>
 					</target>
-
 					<environments>
 						<environment>
 							<os>win32</os>
@@ -113,6 +112,7 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
 				</configuration>
 			</plugin>
 
