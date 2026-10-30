@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (c) 2019, 2021 THALES GLOBAL SERVICES.
+  Copyright (c) 2019, 2026 THALES GLOBAL SERVICES.
   
   This program and the accompanying materials are made available under the
   terms of the Eclipse Public License 2.0 which is available at
@@ -11,7 +11,8 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -21,7 +22,8 @@
 
 	<groupId>org.polarsys</groupId>
 	<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
-	<!-- If you update this version please change addonUnqualifiedVersion to be the same -->
+	<!-- If you update this version please change addonUnqualifiedVersion to be
+	the same -->
 	<version>0.11.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -33,7 +35,8 @@
 		<antrun-version>3.0.0</antrun-version>
 
 		<!-- for junit -->
-		<capella-product-id>org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
+		<capella-product-id>
+			org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
 		<tycho.testArgLine>-Xms3g -Xmx3g -XX:MaxPermSize=256m</tycho.testArgLine>
 
 		<!-- for packaging -->
@@ -52,7 +55,7 @@
 		<module>tests</module>
 		<module>releng/org.polarsys.capella.diffmerge.defer.releng.site</module>
 	</modules>
-	
+
 	<build>
 		<!-- plugins called for all descendants -->
 		<plugins>
@@ -79,9 +82,11 @@
 					<target>
 						<artifact>
 							<groupId>org.polarsys</groupId>
-							<artifactId>org.polarsys.capella.diffmerge.defer.parent</artifactId>
+							<artifactId>
+								org.polarsys.capella.diffmerge.defer.parent</artifactId>
 							<version>0.11.0-SNAPSHOT</version>
-							<classifier>releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition</classifier>
+							<classifier>
+								releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition</classifier>
 						</artifact>
 					</target>
 
@@ -114,7 +119,8 @@
 						</repositories>
 						<dependencies>
 							<dependency>
-								<artifactId>org.eclipse.equinox.p2.repository.tools</artifactId>
+								<artifactId>
+									org.eclipse.equinox.p2.repository.tools</artifactId>
 								<type>eclipse-plugin</type>
 							</dependency>
 							<dependency>
@@ -122,7 +128,8 @@
 								<type>eclipse-feature</type>
 							</dependency>
 							<dependency>
-								<artifactId>org.eclipse.equinox.p2.extras.feature</artifactId>
+								<artifactId>
+									org.eclipse.equinox.p2.extras.feature</artifactId>
 								<type>eclipse-feature</type>
 							</dependency>
 							<dependency>
@@ -139,7 +146,13 @@
 								<goal>eclipse-run</goal>
 							</goals>
 							<configuration>
-								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
+								<appArgLine>
+									-application
+									org.eclipse.equinox.p2.repository.repo2runnable
+									-source
+									file:${project.build.directory}/repository
+									-destination
+									${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
 							</configuration>
 						</execution>
 					</executions>
@@ -169,8 +182,10 @@
 									</delete>
 									<zip
 										destfile="${project.build.directory}/${packagedAddonName}-dropins-${unqualifiedVersion}.${buildQualifier}.zip">
-										<fileset dir="${project.build.directory}">
-											<include name="${packagedAddonName}/**" />
+										<fileset
+											dir="${project.build.directory}">
+											<include
+												name="${packagedAddonName}/**" />
 										</fileset>
 									</zip>
 								</target>
@@ -191,7 +206,8 @@
 								<goal>archive-repository</goal>
 							</goals>
 							<configuration>
-								<finalName>${packagedAddonName}-updateSite-${unqualifiedVersion}.${buildQualifier}</finalName>
+								<finalName>
+									${packagedAddonName}-updateSite-${unqualifiedVersion}.${buildQualifier}</finalName>
 							</configuration>
 						</execution>
 					</executions>
@@ -199,14 +215,14 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 	<profiles>
 		<profile>
 			<id>sign</id>
 			<activation>
 				<property>
-						<name>BUILD_SIGN</name>
-						<value>true</value>
+					<name>BUILD_SIGN</name>
+					<value>true</value>
 				</property>
 			</activation>
 			<build>
@@ -230,7 +246,8 @@
 			<pluginRepositories>
 				<pluginRepository>
 					<id>cbi</id>
-					<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+					<url>
+						https://repo.eclipse.org/content/repositories/cbi-releases/</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
@@ -240,7 +257,7 @@
 				</pluginRepository>
 			</pluginRepositories>
 		</profile>
-		
+
 		<profile>
 			<id>rcptt</id>
 			<activation>
@@ -249,7 +266,7 @@
 			<modules>
 				<module>tests/org.polarsys.capella.diffmerge.defer.tests.rcptt</module>
 			</modules>
-		</profile>		
+		</profile>
 	</profiles>
 
 </project>
