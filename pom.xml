@@ -30,8 +30,6 @@
 	<name>Deferred Merge</name>
 
 	<properties>
-		<tycho-version>2.7.5</tycho-version>
-		<tycho-extras-version>2.7.5</tycho-extras-version>
 		<antrun-version>3.0.0</antrun-version>
 
 		<!-- for junit -->
