@@ -84,3 +84,8 @@ $RECYCLE.BIN/
 ._*
 .Spotlight-V100
 .Trashes
+
+# Generated Maven and target-platform files
+.polyglot.*
+.tycho-consumer-pom.xml
+/releng/org.polarsys.capella.diffmerge.defer.releng.target/capella.target-definition.target
