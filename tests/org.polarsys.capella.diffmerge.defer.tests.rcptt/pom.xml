@@ -51,7 +51,7 @@
 				<version>${rcptt-version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
+					<testFailureIgnore>false</testFailureIgnore>
 					<runner>
 						<version>${rcptt-runner-version}</version>
 						<vmArgs>
