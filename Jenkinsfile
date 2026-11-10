@@ -113,8 +113,6 @@ pipeline {
         stage('Sonar') {
             steps {
                 script {
-                    junit allowEmptyResults: false, testResults: 'DiffMergeDeferTestSuite.xml'
-                    junit allowEmptyResults: false, testResults: 'tests/org.polarsys.capella.diffmerge.defer.tests.rcptt/target/surefire-reports/*.xml'
                     sh "mvn -Djacoco.dataFile=${WORKSPACE}/jacoco.exec org.jacoco:jacoco-maven-plugin:${JACOCO_VERSION}:report"
                     sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse-capella/capella-deferred-merge", 'sonarcloud-token-capella-deferred-merge')
                 }
@@ -124,7 +122,14 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/*.log, *.log, *.exec'
+            archiveArtifacts allowEmptyArchive: true, artifacts: '**/*.log, *.log, *.exec, DiffMergeDeferTestSuite.xml, **/target/surefire-reports/**, **/target/results/**'
+            script {
+                def uiResults = junit allowEmptyResults: false, testResults: 'DiffMergeDeferTestSuite.xml'
+                def rcpttResults = junit allowEmptyResults: false, testResults: 'tests/org.polarsys.capella.diffmerge.defer.tests.rcptt/target/surefire-reports/*.xml'
+                if (uiResults.failCount > 0 || rcpttResults.failCount > 0) {
+                    currentBuild.result = 'FAILURE'
+                }
+            }
         }
         
     	success  {
