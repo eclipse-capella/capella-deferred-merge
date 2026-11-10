@@ -11,7 +11,8 @@ pipeline {
     environment {
         BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
         CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
-        CAPELLA_BRANCH = '7.0.0'
+        CAPELLA_BRANCH = 'master'
+        JACOCO_VERSION = '0.8.15'
       }
 
       options {
@@ -89,6 +90,8 @@ pipeline {
             steps {
                 script {
                     wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+                        sh "curl -fL -o jacoco.zip https://repo.maven.apache.org/maven2/org/jacoco/jacoco/${JACOCO_VERSION}/jacoco-${JACOCO_VERSION}.zip"
+                        sh 'unzip -oq jacoco.zip -d jacoco'
                         tester.runUITests("${CAPELLA_PRODUCT_PATH}", 'DiffMergeDeferTestSuite', 'org.polarsys.capella.diffmerge.defer.tests.ju', 
                             ['org.polarsys.capella.diffmerge.defer.tests.ju.testsuites.DiffMergeDeferTestSuite'])                             
                     }
@@ -100,7 +103,8 @@ pipeline {
             steps {
                 script {
                     wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-                        tester.runRcptt("-Prcptt")                           
+                        def jacocoPrepareAgent = "-Djacoco.destFile=${WORKSPACE}/jacoco.exec -Djacoco.append=true org.jacoco:jacoco-maven-plugin:${JACOCO_VERSION}:prepare-agent"
+                        sh "mvn -e ${jacocoPrepareAgent} verify -Prcptt"
                     }
                 }
             }
@@ -109,7 +113,9 @@ pipeline {
         stage('Sonar') {
             steps {
                 script {
-                    tester.publishTests()
+                    junit allowEmptyResults: false, testResults: 'DiffMergeDeferTestSuite.xml'
+                    junit allowEmptyResults: false, testResults: 'tests/org.polarsys.capella.diffmerge.defer.tests.rcptt/target/surefire-reports/*.xml'
+                    sh "mvn -Djacoco.dataFile=${WORKSPACE}/jacoco.exec org.jacoco:jacoco-maven-plugin:${JACOCO_VERSION}:report"
                     sonar.runSonar("eclipse-capella_capella-deferred-merge", "eclipse-capella/capella-deferred-merge", 'sonarcloud-token-capella-deferred-merge')
                 }
             }

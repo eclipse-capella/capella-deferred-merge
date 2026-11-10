@@ -1,18 +1,18 @@
 /*******************************************************************************
  *
- * Copyright (c) 2019 THALES GLOBAL SERVICES. All rights reserved.
+ * Copyright (c) 2019, 2026 THALES GLOBAL SERVICES. All rights reserved.
  *
  *******************************************************************************/
 target "DiffMergeDefer"
 
-include "https://download.eclipse.org/capella/core/updates/releases/7.0.0/targets/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/nightly/master/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/releases/7.0.0/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/releases/7.0.0/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
